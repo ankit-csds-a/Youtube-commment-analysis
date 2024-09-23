@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews Sentiments...</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #666;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        input[type="url"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-wrapper {
+            text-align: center; /* Centering the button */
+        }
+
+        .btn {
+            width: auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .loader {
+            display: none;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading {
+            border: 5px solid #ccc;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border-top-color: #61f3c5;
+            border-left-color: #61f3c5;
+            animation: spin 1s infinite ease-in;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Image in top-left corner */
+        .robot-image {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px; /* Adjust size as needed */
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Youtube Video Comments Sentiment Analyzer</h1>
+        <form action="results">
+            <div class="form-group">
+                <h2 style="color: red">Enter the Youtube Video URL...</h2>
+                <input type="url" class="form-control" name="url" id="url" placeholder="Please enter a valid URL" required>
+                
+                <!-- Center the button here -->
+                <div class="btn-wrapper">
+                    <button type="submit" class="btn" onclick="spinner()">Analyze Comments</button>
+                </div>
+                
+                <div class="loader">
+                    <div class="loading"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>Ankit Yadav</p>
+    </footer>
+
+    <script type="text/javascript">
+        function spinner() {
+            document.getElementsByClassName("loader")[0].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
